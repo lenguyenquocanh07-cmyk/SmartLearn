@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartLearn | Dashboard</title>
+
+    <link rel="stylesheet" href="css/sidebar.css">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>📚 SmartLearn</h2>
+
+            <p>Study Together</p>
+
+        </div>
+
+        <nav>
+
+            <a class="active" href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="checkin.html">
+                😊 Check-in
+            </a>
+
+            <a href="schedule.html">
+                📅 Lịch rảnh
+            </a>
+
+            <a href="task.html">
+                📋 Công việc
+            </a>
+
+            <a href="feedback.html">
+                💬 Khen - Hỏi - Góp ý
+            </a>
+
+            <a href="profile.html">
+                👤 Hồ sơ
+            </a>
+
+        </nav>
+
+        <div class="logout">
+
+            <a href="login.html">
+                🚪 Đăng xuất
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="content">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Xin chào,
+                    <span class="showUser">
+                        Sinh viên
+                    </span>
+                    👋
+                </h1>
+
+                <p>
+                    Chúc bạn có một ngày học tập hiệu quả.
+                </p>
+
+            </div>
+
+            <div class="avatar">
+
+                <img src="images/avatar-default.png">
+
+            </div>
+
+        </header>
+
+        <!-- ================= THỐNG KÊ ================= -->
+
+        <section class="cards">
+
+            <div class="card blue">
+
+                <div class="card-icon">📋</div>
+
+                <div>
+
+                    <p>Tổng nhiệm vụ</p>
+
+                    <h2 id="taskCount">0</h2>
+
+                </div>
+
+            </div>
+
+            <div class="card green">
+
+                <div class="card-icon">😊</div>
+
+                <div>
+
+                    <p>Smart Energy</p>
+
+                    <h2 id="teamEnergy">100%</h2>
+
+                </div>
+
+            </div>
+
+            <div class="card orange">
+
+                <div class="card-icon">💬</div>
+
+                <div>
+
+                    <p>Bài viết</p>
+
+                    <h2 id="postCount">0</h2>
+
+                </div>
+
+            </div>
+
+            <div class="card purple">
+
+                <div class="card-icon">👥</div>
+
+                <div>
+
+                    <p>Thành viên</p>
+
+                    <h2 id="memberCount">0</h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= HÀNG THỨ HAI ================= -->
+
+        <section class="dashboard-grid">
+
+            <div class="box">
+
+                <h2>📈 Tiến độ nhóm</h2>
+
+                <div class="progress">
+
+                    <div id="progressBar"></div>
+
+                </div>
+
+                <p id="progressText">
+                    0%
+                </p>
+
+            </div>
+
+            <div class="box">
+
+                <h2>⏰ Deadline gần nhất</h2>
+
+                <div id="deadlineBox">
+
+                    <h3>
+                        Chưa có nhiệm vụ
+                    </h3>
+
+                    <p>
+                        Hãy thêm nhiệm vụ đầu tiên.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= HÀNG THỨ BA ================= -->
+
+        <section class="dashboard-grid">
+
+            <div class="box">
+
+                <h2>🔥 Hoạt động hôm nay</h2>
+
+                <ul class="activity">
+
+                    <li>😊 Check-in tâm trạng</li>
+
+                    <li>📋 Cập nhật nhiệm vụ</li>
+
+                    <li>💬 Đăng góp ý</li>
+
+                    <li>📅 Cập nhật lịch rảnh</li>
+
+                </ul>
+
+            </div>
+
+            <div class="box">
+
+                <h2>💪 Smart Energy</h2>
+
+                <div class="energy">
+
+                    <div class="energy-circle">
+
+                        <span id="energyText">
+                            100%
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= HÀNG THỨ TƯ ================= -->
+
+        <section class="dashboard-grid">
+
+            <!-- Top Contributor -->
+
+            <div class="box">
+
+                <h2>🏆 Top Contributor</h2>
+
+                <table class="leaderboard" id="leaderboard">
+
+                    <tr>
+
+                        <th>Thành viên</th>
+
+                        <th>Đóng góp</th>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <!-- Thành viên -->
+
+            <div class="box">
+
+                <h2>👥 Thành viên nhóm</h2>
+
+                <div class="member-list" id="memberList">
+
+                </div>
+
+            </div>
+
+        </section>
+        <section class="dashboard-grid">
+
+            <div class="box">
+
+                <h2>🏫 Thông tin lớp học</h2>
+
+                <p>
+                    <strong>Lớp:</strong>
+                    <span id="dashboardClassName">
+                    Chưa cập nhật
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Mã lớp:</strong>
+                    <span id="dashboardClassCode">
+                    Chưa có mã lớp
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Vai trò:</strong>
+                    <span id="dashboardRole">
+                    Thành viên
+                    </span>
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ================= THÔNG BÁO ================= -->
+
+        <section class="notice">
+
+            <div class="notice-card">
+
+                <h2>📢 Thông báo</h2>
+
+                <ul>
+
+                    <li>📅 Họp nhóm lúc <b>20:00 tối nay</b>.</li>
+
+                    <li>📋 Deadline nộp báo cáo còn <b>2 ngày</b>.</li>
+
+                    <li>😊 Đừng quên cập nhật Check-in tâm trạng.</li>
+
+                    <li>💬 Nếu có khó khăn hãy dùng mục "Khen - Hỏi - Góp ý".</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="footer">
+
+            <p>
+                © 2026 SmartLearn - Smart Collaboration for Students
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="js/common.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

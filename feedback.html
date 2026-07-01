@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TeamSync | Feedback</title>
+
+    <link rel="stylesheet" href="css/feedback.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<h2>
+
+<i class="fa-solid fa-users"></i>
+
+TeamSync
+
+</h2>
+
+<p>Study Together</p>
+
+</div>
+
+<nav>
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+<a href="checkin.html">
+
+<i class="fa-solid fa-face-smile"></i>
+
+Check-in
+
+</a>
+
+<a href="schedule.html">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+Lịch rảnh
+
+</a>
+
+<a href="task.html">
+
+<i class="fa-solid fa-list-check"></i>
+
+Công việc
+
+</a>
+
+<a class="active" href="feedback.html">
+
+<i class="fa-solid fa-comments"></i>
+
+Feedback
+
+</a>
+
+<a href="profile.html">
+
+<i class="fa-solid fa-user"></i>
+
+Hồ sơ
+
+</a>
+
+</nav>
+
+<a class="logout" href="login.html">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Đăng xuất
+
+</a>
+
+</aside>
+
+<!-- ================= CONTENT ================= -->
+
+<main class="content">
+
+<header class="page-header">
+
+<h1>
+
+<i class="fa-solid fa-comments"></i>
+
+Feedback nhóm
+
+</h1>
+
+<p>
+
+Chia sẻ góp ý, câu hỏi và ý tưởng để cả nhóm cùng phát triển.
+
+</p>
+
+</header>
+
+<!-- ================= FORM ================= -->
+
+<section class="feedback-form">
+
+<h2>
+
+<i class="fa-solid fa-pen"></i>
+
+Đăng Feedback
+
+</h2>
+
+<div class="form-group">
+
+<label>Loại Feedback</label>
+
+<select id="feedbackType">
+
+<option value="idea">💡 Góp ý</option>
+
+<option value="question">❓ Câu hỏi</option>
+
+<option value="praise">👍 Khen ngợi</option>
+
+<option value="bug">⚠️ Báo lỗi</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Nội dung</label>
+
+<textarea
+
+id="feedbackContent"
+
+rows="5"
+
+placeholder="Nhập nội dung feedback..."></textarea>
+
+</div>
+
+<button
+
+class="submit-btn"
+
+onclick="addFeedback()">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Đăng Feedback
+
+</button>
+
+</section>
+
+<!-- ================= THỐNG KÊ ================= -->
+
+<section class="feedback-stats">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-comments"></i>
+
+<h3 id="totalFeedback">0</h3>
+
+<p>Tổng Feedback</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<h3 id="ideaCount">0</h3>
+
+<p>Góp ý</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-circle-question"></i>
+
+<h3 id="questionCount">0</h3>
+
+<p>Câu hỏi</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-bug"></i>
+
+<h3 id="bugCount">0</h3>
+
+<p>Báo lỗi</p>
+
+</div>
+
+</section>
+
+<!-- ================= DANH SÁCH ================= -->
+
+<section class="feedback-list-section">
+
+<h2>
+
+<i class="fa-solid fa-list"></i>
+
+Bảng tin Feedback
+
+</h2>
+
+<div id="feedbackList">
+
+<!-- feedback.js render -->
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<p>
+
+© 2026 TeamSync | Feedback Center
+
+</p>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="js/common.js"></script>
+
+<script src="js/feedback.js"></script>
+
+</body>
+
+</html>

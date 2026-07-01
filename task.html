@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>TeamSync | Quản lý công việc</title>
+
+    <link rel="stylesheet"
+          href="css/task.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<h2>
+
+<i class="fa-solid fa-users"></i>
+
+TeamSync
+
+</h2>
+
+<p>Study Together</p>
+
+</div>
+
+<nav>
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+<a href="checkin.html">
+
+<i class="fa-solid fa-face-smile"></i>
+
+Check-in
+
+</a>
+
+<a href="schedule.html">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+Lịch rảnh
+
+</a>
+
+<a class="active"
+href="task.html">
+
+<i class="fa-solid fa-list-check"></i>
+
+Công việc
+
+</a>
+
+<a href="feedback.html">
+
+<i class="fa-solid fa-comments"></i>
+
+Góp ý
+
+</a>
+
+<a href="profile.html">
+
+<i class="fa-solid fa-user"></i>
+
+Hồ sơ
+
+</a>
+
+</nav>
+
+<a class="logout"
+href="login.html">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Đăng xuất
+
+</a>
+
+</aside>
+
+<!-- ================= CONTENT ================= -->
+
+<main class="content">
+
+<header class="page-header">
+
+<div>
+
+<h1>
+
+<i class="fa-solid fa-list-check"></i>
+
+Quản lý công việc
+
+</h1>
+
+<p>
+
+Theo dõi tiến độ của toàn bộ nhóm.
+
+</p>
+
+</div>
+
+</header>
+        <!-- ================= FORM THÊM NHIỆM VỤ ================= -->
+
+        <section class="task-form">
+
+            <div class="form-card">
+
+                <h2>
+                    <i class="fa-solid fa-circle-plus"></i>
+                    Thêm nhiệm vụ mới
+                </h2>
+
+                <div class="form-grid">
+
+                    <!-- Tên công việc -->
+                    <div class="input-group">
+
+                        <label>
+                            <i class="fa-solid fa-pen"></i>
+                            Tên công việc
+                        </label>
+
+                        <input
+                            type="text"
+                            id="taskTitle"
+                            placeholder="Ví dụ: Thiết kế Dashboard">
+
+                    </div>
+
+                    <!-- Người phụ trách -->
+                    <div class="input-group">
+
+                        <label>
+                            <i class="fa-solid fa-user"></i>
+                            Người phụ trách
+                        </label>
+
+                        <select id="taskMember">
+
+                            <option>Quốc Anh (Nhóm trưởng)</option>
+
+                            <option>Hoàng Anh</option>
+
+                            <option>Thành Đạt</option>
+
+                            <option>Gia Bảo</option>
+
+                            <option>Tiến Đạt</option>
+
+                            <option>Quốc Đạt</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Deadline -->
+                    <div class="input-group">
+
+                        <label>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            Deadline
+                        </label>
+
+                        <input
+                            type="text"
+                            id="taskDeadline">
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="add-btn"
+                    onclick="addTask()">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Thêm nhiệm vụ
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ================= BẢNG CÔNG VIỆC ================= -->
+
+        <section class="task-board">
+
+            <!-- TODO -->
+
+            <div class="column todo">
+
+                <div class="column-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-list"></i>
+
+                        TODO
+
+                    </h2>
+
+                    <span id="todoCount">0</span>
+
+                </div>
+
+                <div
+                    id="todoList"
+                    class="task-list">
+
+                </div>
+
+            </div>
+
+            <!-- DOING -->
+
+            <div class="column doing">
+
+                <div class="column-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-spinner"></i>
+
+                        DOING
+
+                    </h2>
+
+                    <span id="doingCount">0</span>
+
+                </div>
+
+                <div
+                    id="doingList"
+                    class="task-list">
+
+                </div>
+
+            </div>
+
+            <!-- DONE -->
+
+            <div class="column done">
+
+                <div class="column-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        DONE
+
+                    </h2>
+
+                    <span id="doneCount">0</span>
+
+                </div>
+
+                <div
+                    id="doneList"
+                    class="task-list">
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- ================= THỐNG KÊ NHANH ================= -->
+
+        <section class="task-summary">
+
+            <div class="summary-card">
+
+                <i class="fa-solid fa-list-check"></i>
+
+                <div>
+
+                    <h3 id="totalTask">0</h3>
+
+                    <p>Tổng nhiệm vụ</p>
+
+                </div>
+
+            </div>
+
+            <div class="summary-card doing-card">
+
+                <i class="fa-solid fa-spinner"></i>
+
+                <div>
+
+                    <h3 id="totalDoing">0</h3>
+
+                    <p>Đang thực hiện</p>
+
+                </div>
+
+            </div>
+
+            <div class="summary-card done-card">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <div>
+
+                    <h3 id="totalDone">0</h3>
+
+                    <p>Đã hoàn thành</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= GỢI Ý ================= -->
+
+        <section class="tips">
+
+            <div class="tips-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    Gợi ý quản lý công việc
+
+                </h2>
+
+                <ul>
+
+                    <li>📌 Mỗi nhiệm vụ chỉ nên giao cho một người phụ trách.</li>
+
+                    <li>📅 Luôn đặt deadline để theo dõi tiến độ.</li>
+
+                    <li>⚙️ Chuyển nhiệm vụ sang <strong>DOING</strong> khi bắt đầu thực hiện.</li>
+
+                    <li>✅ Chuyển sang <strong>DONE</strong> ngay sau khi hoàn thành.</li>
+
+                    <li>👑 Nhóm trưởng nên kiểm tra tiến độ mỗi ngày.</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="footer">
+
+            <p>
+
+                © 2026 TeamSync | Hệ thống quản lý nhóm học tập
+
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script src="js/common.js"></script>
+
+<script src="js/task.js"></script>
+
+</body>
+
+</html>

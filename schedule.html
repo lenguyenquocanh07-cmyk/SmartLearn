@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TeamSync | Schedule</title>
+
+<link rel="stylesheet" href="css/schedule.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<h2>
+
+<i class="fa-solid fa-users"></i>
+
+TeamSync
+
+</h2>
+
+<p>Study Together</p>
+
+</div>
+
+<nav>
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+<a href="checkin.html">
+
+<i class="fa-solid fa-face-smile"></i>
+
+Check-in
+
+</a>
+
+<a class="active" href="schedule.html">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+Lịch rảnh
+
+</a>
+
+<a href="task.html">
+
+<i class="fa-solid fa-list-check"></i>
+
+Công việc
+
+</a>
+
+<a href="feedback.html">
+
+<i class="fa-solid fa-comments"></i>
+
+Feedback
+
+</a>
+
+<a href="profile.html">
+
+<i class="fa-solid fa-user"></i>
+
+Hồ sơ
+
+</a>
+
+</nav>
+
+<a class="logout" href="login.html">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Đăng xuất
+
+</a>
+
+</aside>
+
+<!-- ================= CONTENT ================= -->
+
+<main class="content">
+
+<header class="page-header">
+
+<h1>
+
+<i class="fa-solid fa-calendar-days"></i>
+
+Lịch rảnh nhóm
+
+</h1>
+
+<p>
+
+Chia sẻ thời gian rảnh để nhóm dễ dàng sắp xếp lịch họp.
+
+</p>
+
+</header>
+
+<!-- ================= FORM ================= -->
+
+<section class="schedule-form">
+
+<h2>
+
+<i class="fa-solid fa-plus"></i>
+
+Thêm lịch rảnh
+
+</h2>
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Ngày</label>
+
+<input type="date" id="scheduleDate">
+
+</div>
+
+<div class="form-group">
+
+<label>Bắt đầu</label>
+
+<input type="time" id="startTime">
+
+</div>
+
+<div class="form-group">
+
+<label>Kết thúc</label>
+
+<input type="time" id="endTime">
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Ghi chú</label>
+
+<textarea
+
+id="scheduleNote"
+
+rows="4"
+
+placeholder="Ví dụ: Học ở thư viện, Online, Có thể họp..."></textarea>
+
+</div>
+
+<button class="submit-btn"
+
+onclick="addSchedule()">
+
+<i class="fa-solid fa-floppy-disk"></i>
+
+Lưu lịch
+
+</button>
+
+</section>
+
+<!-- ================= STATS ================= -->
+
+<section class="schedule-stats">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-calendar-check"></i>
+
+<h3 id="totalSchedules">
+
+0
+
+</h3>
+
+<p>Tổng lịch</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-users"></i>
+
+<h3 id="memberSchedules">
+
+0
+
+</h3>
+
+<p>Thành viên đã đăng</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-clock"></i>
+
+<h3 id="todaySchedules">
+
+0
+
+</h3>
+
+<p>Lịch hôm nay</p>
+
+</div>
+
+</section>
+
+<!-- ================= LIST ================= -->
+
+<section class="schedule-list">
+
+<h2>
+
+<i class="fa-solid fa-list"></i>
+
+Danh sách lịch
+
+</h2>
+
+<div id="scheduleContainer">
+
+<!-- JS render -->
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<p>
+
+© 2026 TeamSync | Schedule
+
+</p>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="js/common.js"></script>
+
+<script src="js/schedule.js"></script>
+
+</body>
+
+</html>

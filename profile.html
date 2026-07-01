@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SmartLearn | Hồ sơ cá nhân</title>
+
+    <link rel="stylesheet"
+          href="css/profile.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="background">
+
+<nav>
+
+<div class="logo">
+
+<i class="fa-solid fa-users-viewfinder"></i>
+
+<span>SmartLearn</span>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<div class="profile-card">
+
+<h1>
+
+Hoàn thiện hồ sơ
+
+</h1>
+
+<p class="subtitle">
+
+Chỉ còn một bước nữa để bắt đầu học nhóm.
+
+</p>
+
+<div class="avatar">
+
+<img src="images/avatar-default.png" id="avatar">
+
+<button>
+
+<i class="fa-solid fa-camera"></i>
+
+</button>
+
+</div>
+
+<div class="row">
+
+<div class="input-group">
+
+<label>Họ và tên</label>
+
+<input
+type="text"
+placeholder="Nhập họ tên">
+
+</div>
+
+<div class="input-group">
+
+<label>Email</label>
+
+<input
+type="email"
+placeholder="example@gmail.com">
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="input-group">
+
+<label>Trường</label>
+
+<input
+type="text">
+
+</div>
+
+<div class="input-group">
+
+<label>Lớp</label>
+
+<input
+type="text">
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Vai trò trong nhóm</label>
+
+<div class="role-box">
+
+<label>
+
+<input
+type="radio"
+name="role"
+value="leader">
+
+👑 Nhóm trưởng
+
+</label>
+
+<label>
+
+<input
+type="radio"
+name="role"
+value="member"
+checked>
+
+🙋 Thành viên
+
+</label>
+
+</div>
+
+</div>
+
+<div
+id="leaderBox"
+class="hidden">
+
+<button
+class="create-btn">
+
+<i class="fa-solid fa-plus"></i>
+
+Tạo lớp học
+
+</button>
+
+<p>
+
+Mã lớp:
+
+<span id="classCode">
+
+------
+
+</span>
+
+</p>
+
+</div>
+
+<div
+id="memberBox">
+
+<label>
+
+Nhập mã lớp
+
+</label>
+
+<input
+type="text"
+placeholder="Ví dụ: SL-9A3KQ2">
+
+</div>
+
+<button
+class="next-btn">
+
+Tiếp tục
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- QUAN TRỌNG -->
+<script src="js/common.js"></script>
+<script src="js/profile.js"></script>
+
+</body>
+
+</html>

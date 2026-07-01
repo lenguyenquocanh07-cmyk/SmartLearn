@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>SmartLearn | Check-in</title>
+
+<link rel="stylesheet"
+href="css/checkin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<h2>
+
+<i class="fa-solid fa-users"></i>
+
+SmartLearn
+
+</h2>
+
+<p>Study Together</p>
+
+</div>
+
+<nav>
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+<a class="active"
+href="checkin.html">
+
+<i class="fa-solid fa-face-smile"></i>
+
+Check-in
+
+</a>
+
+<a href="schedule.html">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+Lịch rảnh
+
+</a>
+
+<a href="task.html">
+
+<i class="fa-solid fa-list-check"></i>
+
+Công việc
+
+</a>
+
+<a href="feedback.html">
+
+<i class="fa-solid fa-comments"></i>
+
+Góp ý
+
+</a>
+
+<a href="profile.html">
+
+<i class="fa-solid fa-user"></i>
+
+Hồ sơ
+
+</a>
+
+</nav>
+
+<a class="logout"
+href="login.html">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Đăng xuất
+
+</a>
+
+</aside>
+
+<!-- CONTENT -->
+
+<main class="content">
+
+<header class="page-header">
+
+<h1>
+
+<i class="fa-solid fa-face-smile"></i>
+
+Check-in tâm trạng
+
+</h1>
+
+<p>
+
+Chào <span id="userName">Sinh viên</span>,
+hôm nay bạn cảm thấy thế nào?
+
+</p>
+
+</header>
+
+<!-- ================= CHỌN TÂM TRẠNG ================= -->
+
+<section class="checkin-card">
+
+<h2>
+
+<i class="fa-solid fa-heart"></i>
+
+Chọn tâm trạng hôm nay
+
+</h2>
+
+<div class="mood-grid">
+
+<div class="mood-card happy"
+data-mood="happy">
+
+<div class="emoji">😁</div>
+
+<h3>Rất tốt</h3>
+
+<p>Đầy năng lượng</p>
+
+</div>
+
+<div class="mood-card good"
+data-mood="good">
+
+<div class="emoji">😊</div>
+
+<h3>Vui vẻ</h3>
+
+<p>Mọi việc ổn</p>
+
+</div>
+
+<div class="mood-card normal"
+data-mood="normal">
+
+<div class="emoji">🙂</div>
+
+<h3>Bình thường</h3>
+
+<p>Một ngày bình thường</p>
+
+</div>
+
+<div class="mood-card tired"
+data-mood="tired">
+
+<div class="emoji">😴</div>
+
+<h3>Mệt</h3>
+
+<p>Cần nghỉ ngơi</p>
+
+</div>
+
+<div class="mood-card sad"
+data-mood="sad">
+
+<div class="emoji">😔</div>
+
+<h3>Căng thẳng</h3>
+
+<p>Cần được hỗ trợ</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= GHI CHÚ ================= -->
+
+<section class="note-card">
+
+<h2>
+
+<i class="fa-solid fa-pen"></i>
+
+Ghi chú hôm nay
+
+</h2>
+
+<textarea
+
+id="checkinNote"
+
+rows="5"
+
+placeholder="Ví dụ: Hôm nay mình hoàn thành Dashboard, chiều sẽ tiếp tục làm Check-in...">
+
+</textarea>
+
+<button
+
+class="checkin-btn"
+
+onclick="saveCheckin()">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Cập nhật Check-in
+
+</button>
+
+</section>
+
+<!-- ================= THÀNH VIÊN HÔM NAY ================= -->
+
+<section class="member-section">
+
+<div class="member-card">
+
+<h2>
+
+<i class="fa-solid fa-users"></i>
+
+Thành viên hôm nay
+
+</h2>
+
+<div id="memberList" class="member-list">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= THỐNG KÊ ================= -->
+
+<section class="stats-grid">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h3 id="teamEnergy">100%</h3>
+
+<p>Smart Energy</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-calendar-check"></i>
+
+<h3 id="checkinCount">0/0</h3>
+
+<p>Đã Check-in</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-fire"></i>
+
+<h3 id="streakDay">0</h3>
+
+<p>Chuỗi Check-in</p>
+
+</div>
+
+</section>
+
+<!-- ================= LỊCH SỬ CHECK-IN ================= -->
+
+<section class="history-section">
+
+<div class="history-card">
+
+<h2>
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+Check-in gần nhất
+
+</h2>
+
+<div id="historyList">
+
+<div class="history-item">
+
+<i class="fa-solid fa-circle-info"></i>
+
+<p>
+
+Chưa có dữ liệu check-in.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= MẸO HÔM NAY ================= -->
+
+<section class="tips-section">
+
+<div class="tips-card">
+
+<h2>
+
+<i class="fa-solid fa-lightbulb"></i>
+
+Gợi ý cho nhóm
+
+</h2>
+
+<ul>
+
+<li>😊 Nếu bạn cảm thấy mệt, hãy nghỉ ngơi 10–15 phút trước khi học.</li>
+
+<li>🤝 Chủ động trao đổi với các thành viên khi gặp khó khăn.</li>
+
+<li>📅 Kiểm tra deadline để tránh quên nhiệm vụ.</li>
+
+<li>💬 Chia sẻ tâm trạng giúp nhóm hỗ trợ nhau tốt hơn.</li>
+
+<li>🚀 Duy trì check-in mỗi ngày để tăng Smart Energy.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<p>
+
+© 2026 SmartLearn | Hệ thống quản lý nhóm học tập
+
+</p>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="js/common.js"></script>
+
+<script src="js/checkin.js"></script>
+
+</body>
+
+</html>
