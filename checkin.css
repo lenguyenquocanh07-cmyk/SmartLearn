@@ -1,0 +1,457 @@
+/* ==========================================
+   TEAMSYNC CHECK-IN V2
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+}
+
+.app{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    width:260px;
+    background:linear-gradient(180deg,#2563eb,#1d4ed8);
+    color:#fff;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    padding:30px 20px;
+    display:flex;
+    flex-direction:column;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.logo h2{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.logo p{
+    opacity:.8;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.sidebar nav a,
+.logout{
+    color:white;
+    text-decoration:none;
+    padding:14px 18px;
+    border-radius:12px;
+    transition:.3s;
+    font-weight:500;
+}
+
+.sidebar nav a:hover{
+    background:rgba(255,255,255,.15);
+    transform:translateX(5px);
+}
+
+.sidebar nav .active{
+    background:white;
+    color:#2563eb;
+}
+
+.logout{
+    margin-top:auto;
+    text-align:center;
+    background:rgba(255,255,255,.15);
+}
+
+.logout:hover{
+    background:#ef4444;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    padding:35px;
+}
+
+.page-header{
+    margin-bottom:30px;
+}
+
+.page-header h1{
+    color:#2563eb;
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.page-header p{
+    color:#666;
+}
+
+/* ================= CARD ================= */
+
+.checkin-card,
+.note-card,
+.member-card,
+.history-card,
+.tips-card{
+    background:white;
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    margin-bottom:30px;
+}
+
+.checkin-card h2,
+.note-card h2,
+.member-card h2,
+.history-card h2,
+.tips-card h2{
+    color:#2563eb;
+    margin-bottom:22px;
+}
+
+/* ================= MOOD ================= */
+
+.mood-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+}
+
+.mood-card{
+    background:#f8fafc;
+    border-radius:18px;
+    padding:25px 15px;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+    border:2px solid transparent;
+}
+
+.mood-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,.12);
+}
+
+.mood-card.active{
+    border-color:#2563eb;
+    background:#eff6ff;
+}
+
+.emoji{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.mood-card h3{
+    margin-bottom:8px;
+}
+
+.mood-card p{
+    font-size:14px;
+    color:#666;
+}
+
+/* màu */
+
+.happy{border-top:5px solid #22c55e;}
+.good{border-top:5px solid #3b82f6;}
+.normal{border-top:5px solid #f59e0b;}
+.tired{border-top:5px solid #8b5cf6;}
+.sad{border-top:5px solid #ef4444;}
+
+/* ================= NOTE ================= */
+
+textarea{
+    width:100%;
+    resize:none;
+    padding:15px;
+    border-radius:12px;
+    border:1px solid #ddd;
+    font-size:15px;
+    outline:none;
+}
+
+textarea:focus{
+    border-color:#2563eb;
+}
+
+.checkin-btn{
+    margin-top:20px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:14px 25px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.checkin-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+/* ================= MEMBER LIST ================= */
+
+.member-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.member{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:16px;
+    background:#f8fafc;
+    border-radius:14px;
+    transition:.3s;
+}
+
+.member:hover{
+    transform:translateX(5px);
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.avatar{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:600;
+    font-size:18px;
+}
+
+.info{
+    flex:1;
+}
+
+.info h3{
+    margin-bottom:5px;
+    color:#1e293b;
+}
+
+.info small{
+    color:#64748b;
+}
+
+.status{
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status.waiting{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+.status.checked{
+    background:#dcfce7;
+    color:#16a34a;
+}
+
+/* ================= STATS ================= */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.stat-card{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-5px);
+}
+
+.stat-card i{
+    font-size:38px;
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.stat-card h3{
+    font-size:30px;
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.stat-card p{
+    color:#666;
+}
+
+/* ================= HISTORY ================= */
+
+.history-item{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+    padding:15px;
+    border-bottom:1px solid #eee;
+}
+
+.history-item:last-child{
+    border-bottom:none;
+}
+
+.history-item i{
+    color:#2563eb;
+    font-size:20px;
+    margin-top:3px;
+}
+
+.history-item p{
+    color:#555;
+    line-height:1.6;
+}
+
+/* ================= TIPS ================= */
+
+.tips-card ul{
+    padding-left:20px;
+}
+
+.tips-card li{
+    margin-bottom:12px;
+    line-height:1.8;
+    color:#555;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#777;
+    padding:25px;
+    font-size:14px;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.checkin-card,
+.note-card,
+.member-card,
+.history-card,
+.tips-card,
+.stat-card{
+    animation:fadeIn .35s ease;
+}
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+    background:#edf2f7;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+    .mood-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .sidebar{
+        width:220px;
+    }
+
+    .content{
+        margin-left:220px;
+        width:calc(100% - 220px);
+        padding:20px;
+    }
+
+    .mood-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .sidebar{
+        display:none;
+    }
+
+    .content{
+        margin-left:0;
+        width:100%;
+    }
+
+    .member{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .status{
+        margin-top:10px;
+    }
+
+}
